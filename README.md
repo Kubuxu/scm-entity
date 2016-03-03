@@ -15,7 +15,7 @@ socat TCP4-LISTEN:6667,fork TCP:irc.fc00.io:6667
 Copyright © 2016 Jakub Sztandera <k.sztandera@protonmail.ch>
 
 This work is free. You can redistribute it and/or modify it under the
-terms of the Do What The Fuck You Want To But It's Not My Fault, Version1
+terms of the Do What The Fuck You Want To But It's Not My Fault, Version 1
 as published by Ben McGinnes. See the LICENSE file for more details.
 ```
 
