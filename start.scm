@@ -29,8 +29,11 @@
   (make-safe-environment parent: default-safe-environment mutable: #t extendable: #t) )
 (define (exec-safe str)
   (define res
-    (try (safe-eval (call-with-input-string str read) environment: exec-env)
-         (catch #f)) ) 
+    (try 
+      (being
+        (define input-data (call-with-input-string str read)) 
+        (safe-eval input-data environment: exec-env))
+      (catch #f)) ) 
   (if (condition? res)
     (get-condition-property res 'exn 'message "frak: no message supplied")
     res) ) 
@@ -48,10 +51,12 @@
 (irc:connect con)
 
 (for-each (lambda (name) (safe-environment-set! exec-env name (eval name)))
-          (list 'fold 'fold-right 'reduce) )
+          (list 'fold 'fold-right 'reduce 'format) )
+(safe-environment-set! exec-env 'source 
+                       "P9C-372, nah, just kidding.https://github.com/Kubuxu/scm-entity")
 
 (irc:join con "#V")
-(irc:join con "#cjdns")
+;;(irc:join con "#cjdns")
 
 (irc:add-message-handler!
   con repl
