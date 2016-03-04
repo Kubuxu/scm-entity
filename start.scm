@@ -52,7 +52,7 @@
 (define (publish-to-IPFS)
   (call-with-values
     (lambda () (process "ipfs add -q dataset"))
-    (lambda (in out pid) (format "Dataset avalible at fs:/ipfs/~a" (read-line in))) ) ) 
+    (lambda (in out pid) (format "Dataset available at fs:/ipfs/~a" (read-line in))) ) )
 
 (load-defines)
 (define (exec-safe str)
