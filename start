@@ -1,0 +1,9 @@
+#!/bin/env sh
+touch dataset
+chmod +wr dataset
+socat TCP4-LISTEN:6667,reuseaddr TCP:irc.fc00.io:6667&
+until sudo -u nobody ./start.scm; do
+	echo "Entity crashed. Restarting."
+	sleep 10
+	socat TCP4-LISTEN:6667,reuseaddr TCP:irc.fc00.io:6667&
+done
