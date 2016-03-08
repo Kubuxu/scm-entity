@@ -93,7 +93,10 @@
   command: "PRIVMSG"
   body: (lambda (msg)
           (define body (irc:message-msg msg))
-          (and (string? body) (string=? "?" (string-take body 1)))
+          (and
+           (string? body)
+           (> (string-length body) 1)
+           (string=? "?" (string-take body 1)))
           ) )
 
 (irc:run-message-loop con debug: #t)
