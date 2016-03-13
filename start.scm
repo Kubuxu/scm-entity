@@ -87,6 +87,12 @@
 
 (irc:join con "#V")
 (irc:join con "#cjdns")
+(irc:join con "#dev")
+(irc:join con "#webdev")
+(irc:join con "#Starchasers")
+(irc:join con "#fc00")
+(irc:join con "#ipfs")
+(irc:join con "#documentation")
 
 (irc:add-message-handler!
   con repl
