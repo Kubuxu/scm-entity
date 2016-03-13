@@ -85,14 +85,9 @@
 (for-each (lambda (name) (safe-environment-set! exec-env name (eval name)))
           (list 'fold 'fold-right 'reduce 'format 'publish-to-IPFS) )
 
-(irc:join con "#V")
-(irc:join con "#cjdns")
-(irc:join con "#dev")
-(irc:join con "#webdev")
-(irc:join con "#Starchasers")
-(irc:join con "#fc00")
-(irc:join con "#ipfs")
-(irc:join con "#documentation")
+(for-each (lambda (name) (irc:join con name))
+          (list "#V" "#cjdns" "#dev" "#webdev" "#Starchasers"
+                "#fc00" "#ipfs" "#documentation" "#hyperboria") )
 
 (irc:add-message-handler!
   con repl
