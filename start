@@ -1,4 +1,4 @@
-#!/urs/bin/env sh
+#!/usr/bin/env sh
 touch dataset
 chmod a+wr dataset
 socat TCP4-LISTEN:6667,reuseaddr TCP:irc.fc00.io:6667&
