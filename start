@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 touch dataset
 chmod a+wr dataset
-socat TCP4-LISTEN:6667,reuseaddr TCP:irc.fc00.io:6667&
+socat TCP4-LISTEN:6667,reuseaddr,fork TCP:irc.fc00.io:6667&
+PID=$!
 ./start.scm
+kill -9 $PID

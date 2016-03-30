@@ -12,7 +12,7 @@
                          (exit condition))
                        (lambda () body)))))))
 (define con
-  (irc:connection server: "localhost" nick: "Entity") )
+  (irc:connection server: "localhost" nick: "Entity" reconnect: #t reconnect-timeout: (* 250 60 1000)) )
 
 (define (irc:message-resp msg)
   (define target (car (irc:message-parameters msg)))
